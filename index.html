@@ -1,3 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Popup Message</title>
+	<style>
+		:root {
+			font-family: Arial, sans-serif;
+			color: #172033;
+			background: #eef3f8;
+		}
+
+		body {
+			display: grid;
+			min-height: 100vh;
+			margin: 0;
+			place-items: center;
+		}
+
+		.card {
+			width: min(90%, 420px);
+			padding: 2rem;
+			text-align: center;
+			background: #ffffff;
+			border-radius: 12px;
+			box-shadow: 0 12px 30px rgb(23 32 51 / 12%);
+		}
+
+		button {
+			padding: 0.75rem 1.25rem;
+			color: #ffffff;
+			font: inherit;
+			background: #2563eb;
+			border: 0;
+			border-radius: 6px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background: #1d4ed8;
+		}
+
+		dialog {
+			width: min(85%, 360px);
+			padding: 1.5rem;
+			text-align: center;
+			border: 0;
+			border-radius: 10px;
+			box-shadow: 0 16px 40px rgb(23 32 51 / 25%);
+		}
+
+		dialog::backdrop {
+			background: rgb(23 32 51 / 55%);
+		}
+
+		.close-button {
+			margin-top: 1rem;
+			background: #475569;
+		}
+
+		.close-button:hover {
+			background: #334155;
+		}
+	</style>
+</head>
+<body>
+	<main class="card">
+		<h1>Welcome</h1>
+		<p>Click the button to show a popup message.</p>
+		<button id="open-popup" type="button">Show message</button>
+	</main>
+
+	<dialog id="message-popup" aria-labelledby="popup-title">
+		<h2 id="popup-title">Hello!</h2>
+		<p>This is your popup message.</p>
+		<button class="close-button" id="close-popup" type="button">Close</button>
+	</dialog>
+
+	<script>
+		const popup = document.querySelector('#message-popup');
+		const openButton = document.querySelector('#open-popup');
+		const closeButton = document.querySelector('#close-popup');
+
+		openButton.addEventListener('click', () => popup.showModal());
+		closeButton.addEventListener('click', () => popup.close());
+	</script>
+</body>
+</html>
 git init
 git add.
 git <commit-m>
@@ -17,3 +106,7 @@ git track
 - `git <commit-m>` → removed
 - `</commit-m>` → removed
 - `git commit-m"new life"`
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git branch -M main
+git push -u origin main
+git add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
